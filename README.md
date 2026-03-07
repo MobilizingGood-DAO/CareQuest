@@ -21,12 +21,16 @@ Simple flow:
 
 Builders
 ↓
+
 CARE QUEST pledge
 ↓
+
 Impact dashboard
 ↓
+
 CARE treasury (future)
 ↓
+
 Ecosystem public goods
 
 The experiment is simple:
