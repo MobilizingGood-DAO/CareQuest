@@ -3,16 +3,13 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { WalletConnectButton } from "./wallet-connect-button"
-import { Shield, LayoutDashboard, Wallet, FilePlus, Upload, Gift } from "lucide-react"
+import { Shield, LayoutDashboard, FilePlus } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
   { href: "/care-quest", label: "Home", icon: Shield },
-  { href: "/care-quest/register", label: "Register Team", icon: FilePlus },
-  { href: "/care-quest/submit", label: "Submit Update", icon: Upload },
-  { href: "/care-quest/pledge", label: "Pledge", icon: Gift },
+  { href: "/care-quest/register", label: "Register Project", icon: FilePlus },
   { href: "/care-quest/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/care-quest/treasury", label: "Treasury", icon: Wallet },
 ]
 
 export function CareQuestNav() {

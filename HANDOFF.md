@@ -9,10 +9,13 @@
 
 1. **Clone the repo** (or pull latest)
 2. **Copy env:** `cp .env.example .env.local` (or create `.env.local` manually)
-3. **Add Supabase credentials** to `.env.local`:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-4. **Run schema:** In Supabase SQL Editor, execute `scripts/care-quest-schema.sql`
+3. **Add Supabase credentials** to `.env.local` (from Supabase → Project Settings → API):
+
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=https://hmevvklsavhrmepyfxpq.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZXZ2a2xzYXZocm1lcHlmeHBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5MTMyMjAsImV4cCI6MjA4ODQ4OTIyMH0.YRenaJykT04ppWEwVrtG9BXRnC9SIHCpkXimcr_JHOs
+   ```
+4. **Run schema:** In Supabase SQL Editor, execute `scripts/care-quest-schema.sql` (creates `projects` table only)
 5. **Install & run:**
    ```bash
    npm install
@@ -25,8 +28,8 @@
 ## Current State
 
 ### Done
-- [x] CARE QUEST routes: Home, Register Team, Submit Update, Pledge, Dashboard, Treasury
-- [x] Supabase schema: programs, teams, submissions, pledges, treasury_records
+- [x] CARE QUEST routes: Home, Register Project, Dashboard (Treasury placeholder)
+- [x] Supabase schema: `projects` table (id, wallet_address, project_name, description, pledge_percent, created_at)
 - [x] wagmi + viem (Avalanche C-Chain) for wallet connection
 - [x] Build Games program context (6-week, $100k, category prizes)
 - [x] `.env.local` with Supabase credentials
@@ -52,17 +55,25 @@ Before handoff, verify:
 
 1. **Home** – Loads, shows Build Games context
 2. **Connect Wallet** – MetaMask or other EVM wallet (Avalanche C-Chain preferred)
-3. **Register Team** – Requires schema; creates team in `teams` table
-4. **Submit Update** – Requires registered team; creates submission
-5. **Pledge** – Requires registered team; creates pledge
-6. **Dashboard** – Shows teams, pledges, program info
-7. **Treasury** – Shows pledge commitments and placeholder wallet
+3. **Register Project** – Requires schema; inserts into `projects` table
+4. **Dashboard** – Shows projects and total pledged %
+
+---
+
+## Supabase Variables
+
+Add to `.env.local` (Supabase → Project Settings → API):
+
+| Variable | Value |
+|----------|-------|
+| `NEXT_PUBLIC_SUPABASE_URL` | `https://hmevvklsavhrmepyfxpq.supabase.co` |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZXZ2a2xzYXZocm1lcHlmeHBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5MTMyMjAsImV4cCI6MjA4ODQ4OTIyMH0.YRenaJykT04ppWEwVrtG9BXRnC9SIHCpkXimcr_JHOs` |
 
 ---
 
 ## Known Issues / Notes
 
-- **Supabase:** Schema must be run in Supabase SQL Editor before Register/Submit/Pledge work.
+- **Supabase:** Schema must be run in Supabase SQL Editor before Register works.
 - **Leaderboard:** Pre-existing GOOD CARE app has other pages; `debugUserStats` import was removed to fix build.
 - **CARE QUEST is at `/care-quest`** – main app home is `/`.
 - **.env.local is gitignored** – never commit real credentials.

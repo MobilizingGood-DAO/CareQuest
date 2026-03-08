@@ -4,7 +4,7 @@ import { WalletConnectButton } from "@/components/care-quest/wallet-connect-butt
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
-import { Shield, FileCheck, BarChart3, Wallet, Trophy } from "lucide-react"
+import { Shield, FileCheck, BarChart3, Trophy } from "lucide-react"
 
 export default function CareQuestHomePage() {
   return (
@@ -19,10 +19,8 @@ export default function CareQuestHomePage() {
           CARE QUEST
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-slate-400">
-          A coordination layer for the Avalanche Build Games incentive program.
-          While builders chase the $100k grand prize and $5–40k category awards,
-          CARE QUEST helps the program itself: register teams, track submissions,
-          and optionally pledge a portion of rewards back to the ecosystem.
+          A coordination layer for Avalanche Build Games. Register your project,
+          pledge 1–10% toward ecosystem initiatives, and track participation on the public dashboard.
         </p>
         <div className="mt-8">
           <WalletConnectButton size="lg" className="bg-emerald-600 px-8 hover:bg-emerald-500" />
@@ -48,34 +46,22 @@ export default function CareQuestHomePage() {
       {/* How it works */}
       <section>
         <h2 className="mb-6 text-2xl font-semibold">How It Works</h2>
-        <div className="grid gap-6 sm:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2">
           <Card className="border-slate-800 bg-slate-900/50">
             <CardHeader>
               <FileCheck className="mb-2 h-10 w-10 text-emerald-400" />
-              <CardTitle className="text-lg">Register & Submit</CardTitle>
+              <CardTitle className="text-lg">Register</CardTitle>
               <CardDescription>
-                Register your team for the program round and submit project updates
-                (idea, MVP, GTM, final).
+                Connect wallet, add project name and description, pledge 1–10% toward ecosystem initiatives.
               </CardDescription>
             </CardHeader>
           </Card>
           <Card className="border-slate-800 bg-slate-900/50">
             <CardHeader>
               <BarChart3 className="mb-2 h-10 w-10 text-emerald-400" />
-              <CardTitle className="text-lg">Transparency</CardTitle>
+              <CardTitle className="text-lg">Dashboard</CardTitle>
               <CardDescription>
-                Participation metrics and optional pledges are shown on the public
-                dashboard.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-          <Card className="border-slate-800 bg-slate-900/50">
-            <CardHeader>
-              <Wallet className="mb-2 h-10 w-10 text-emerald-400" />
-              <CardTitle className="text-lg">Ecosystem Pledges</CardTitle>
-              <CardDescription>
-                Optionally pledge 1–10% of potential rewards toward ecosystem initiatives.
-                Track commitments and fulfillment on the treasury page.
+                View participating projects and total pledged percentage.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -85,7 +71,7 @@ export default function CareQuestHomePage() {
       {/* CTA */}
       <section className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <Button asChild className="bg-emerald-600 hover:bg-emerald-500">
-          <Link href="/care-quest/register">Register Team</Link>
+          <Link href="/care-quest/register">Register Project</Link>
         </Button>
         <Button asChild variant="outline" className="border-slate-700 text-slate-200 hover:bg-slate-800">
           <Link href="/care-quest/dashboard">View Dashboard</Link>

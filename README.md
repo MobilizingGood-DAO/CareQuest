@@ -33,11 +33,11 @@ A purpose-driven blockchain platform focused on mental health, transparency, and
 - MetaMask browser extension
 
 ### Environment Variables
-Create a `.env.local` file in the root directory:
+Create a `.env.local` file in the root directory. Required for CARE QUEST and other Supabase features:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_SUPABASE_URL=https://hmevvklsavhrmepyfxpq.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZXZ2a2xzYXZocm1lcHlmeHBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5MTMyMjAsImV4cCI6MjA4ODQ4OTIyMH0.YRenaJykT04ppWEwVrtG9BXRnC9SIHCpkXimcr_JHOs
 ```
 
 ### Database Setup
