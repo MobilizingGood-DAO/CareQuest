@@ -20,22 +20,18 @@ CARE QUEST is **not** a generic Web3 reputation dashboard. It provides:
 
 ### 1. Supabase environment variables
 
-Add to `.env.local`:
+Add to `.env.local` (from Supabase → Project Settings → API):
 
-```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://hmevvklsavhrmepyfxpq.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtZXZ2a2xzYXZocm1lcHlmeHBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5MTMyMjAsImV4cCI6MjA4ODQ4OTIyMH0.YRenaJykT04ppWEwVrtG9BXRnC9SIHCpkXimcr_JHOs
 ```
 
 ### 2. Database schema
 
 Run the SQL in `scripts/care-quest-schema.sql` in the Supabase SQL Editor. This creates:
 
-- `programs` – incentive program rounds (Build Games seeded)
-- `teams` – builder teams/projects
-- `submissions` – team updates (stage, repo_url, demo_url, etc.)
-- `pledges` – optional ecosystem contribution commitments
-- `treasury_records` – fulfillment/funding activity
+- `projects` – id, wallet_address, project_name, description, pledge_percent, created_at
 
 ### 3. Access
 
@@ -52,11 +48,8 @@ Visit `/care-quest` in your browser.
 ## Pages
 
 - **Home** – Explains CARE QUEST, Connect Wallet
-- **Register Team** – Register team for active program
-- **Submit Update** – Submit project progress (stage, repo, demo)
-- **Pledge** – Optional 1–10% pledge
-- **Dashboard** – Participation metrics, teams, pledges
-- **Treasury** – Pledge commitments and fulfillment records
+- **Register Project** – project_name, description, pledge_percent (1–10%); inserts into `projects`
+- **Dashboard** – Participating projects count, total pledged %, project list
 
 ## Future Integration
 
